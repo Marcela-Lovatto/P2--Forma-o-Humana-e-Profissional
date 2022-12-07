@@ -1,0 +1,83 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int i, idade;
+float peso, altura;
+char olhos, cabelos;
+int OLHOS1=0, RUIVO_OLHOS=0, SOMA1=0, CONT1=0, PARTE1=0;
+int porcentagem, olhos_coloridos, media, PARTE4;
+
+int main(){
+/*Faça um programa que receba a idade, o peso, a altura, a cor dos olhos (A — azul; P — preto; V — verde; e
+C — castanho) e a cor dos cabelos (P — preto; C — castanho; L — louro; e R — ruivo) de seis pessoas, e que
+calcule e mostre:
+1) a quantidade de pessoas com idade superior a 50 anos e peso inferior a 60 kg;
+2) a média das idades das pessoas com altura inferior a 1,50 m;
+3) a porcentagem de pessoas com olhos azuis entre todas as pessoas analisadas; e
+4) a quantidade de pessoas ruivas e que não possuem olhos azuis. */
+
+
+    for(i=1;i<=6;i=i+1) {
+
+        printf("Digite a idade de uma pessoa do grupo\n\n");
+        scanf("%d", &idade);
+
+
+        printf("Agora digite o peso dessa pessoa\n\n");
+        scanf("%f", &peso);
+
+
+        if(idade>50 && peso<60){
+            PARTE1= PARTE1 + 1;
+        }
+
+
+        printf("Informe a altura dele(a)\n\n");
+        scanf("%f", &altura);
+
+
+        if(altura < 1.5) {
+                SOMA1= SOMA1 + idade;
+                CONT1= CONT1 + 1;
+        }
+
+
+        printf("Qual a cor dos olhos desta pessoa?\n Digite uma dessas opcoes:\n A(azul)\n  P(preto)\n  V(verde)\n\n");
+        scanf("%s", &olhos);
+
+
+        if(olhos=='A'){
+                OLHOS1= OLHOS1 + 1;
+        }
+
+
+        printf("Qual a cor do cabelo?\n Digite uma dessas opcoes:\n P (preto)\n  C(castanho)\n  L(louro)\n  R(ruivo)\n\n");
+        scanf("%s", &cabelos);
+
+
+        if(cabelos=='R'  &&  olhos!='A'){
+            (RUIVO_OLHOS = RUIVO_OLHOS + 1);
+        }
+    }
+
+
+
+    //Resolvendo a 1
+    printf("A quantidade de pessoas com mais de 50 anos, e com peso inferior a 60kg eh de %d pessoas\n\n",PARTE1);
+
+    //Resvolvendo a 2
+    media= (SOMA1 / CONT1);
+    printf("A média das idades das pessoas com altura inferior a 1,50 m eh de %d anos\n\n",media);
+
+    //Resolvendo a 3
+    porcentagem = (100 * OLHOS1) / 6 ;
+    printf("A porcentagem de pessoas com olhos azuis em relacao ao total eh de %d % \n\n", porcentagem);
+
+    //Resolvendo a 4
+    printf("A quantidade de pessoas ruivas e sem olhos azuis eh %d pessoas",RUIVO_OLHOS);
+
+
+
+
+    return 0;
+}
